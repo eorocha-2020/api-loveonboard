@@ -14,7 +14,15 @@ const Payment = sequelize.define("Payment", {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  payer_name: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
   payer_cpf: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  genero: {
     type: DataTypes.STRING,
     allowNull: false,
   },
