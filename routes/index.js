@@ -102,6 +102,15 @@ router.get("/buscar-ingressos", async function (req, res, next) {
   }
 });
 
+router.get("/teste", async function (req, res, next) {
+  try {
+    res.status(200).send('Deu Certo')
+  } catch (error) {
+    res.status(500).send("Erro ao buscar ingressos");
+  }
+});
+
+
 
 router.get("/buscar-ingressos-aprovados", async function (req, res, next) {
   try {
