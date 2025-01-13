@@ -19,7 +19,7 @@ router.get("/", function (req, res, next) {
 router.post("/criar-pix", async function (req, res, next) {
   const data = req.body;
   const body = {
-    transaction_amount: 0.02,
+    transaction_amount: data.payer.genero === "female" ? 80 : 100,
     description: data.description,
     payment_method_id: "pix",
     notification_url: process.env.NOTIFICATION_URL,
@@ -32,6 +32,7 @@ router.post("/criar-pix", async function (req, res, next) {
       },
     },
   };
+
   const comprador = await pagarStore.findOne({
     where: { payer_cpf: data.payer.cpf, status: "approved" },
   });
